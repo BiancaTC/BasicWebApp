@@ -35,4 +35,9 @@ public class QueryProcessorTest {
     public void knowsAboutName() throws Exception {
         assertThat(queryProcessor.process("name"), containsString("test-sei-btc18"));
     }
+
+    @Test
+    public void knowsAboutNumbers() throws Exception {
+        assertThat(queryProcessor.process("largest:2000, 10"), containsString("200"));
+    }
 }
