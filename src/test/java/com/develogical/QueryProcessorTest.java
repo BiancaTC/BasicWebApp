@@ -38,6 +38,6 @@ public class QueryProcessorTest {
 
     @Test
     public void knowsAboutNumbers() throws Exception {
-        assertThat(queryProcessor.process("largest:2000, 10"), containsString("200"));
+        assertThat(queryProcessor.process("which of the followingnumbers is the largest: 20385, 20328, 202, 2048"), containsString("20385"));
     }
 }

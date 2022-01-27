@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class QueryProcessor {
 
@@ -23,12 +24,20 @@ public class QueryProcessor {
         }
 
         if (query.toLowerCase().contains("largest")) {
-            String sub = String.valueOf(query.subSequence(query.indexOf(":") + 1, query.length()));
+            String sub = String.valueOf(query.subSequence(query.indexOf(":") + 2, query.length()));
             List<String> st_nums = Arrays.asList(sub.split(", "));
             List<Integer> nums = st_nums.stream().map(Integer::parseInt).collect(Collectors.toList());
 
             return Collections.max(nums).toString();
         }
+
+//        if (query.toLowerCase().contains("plus")) {
+//            String sub = String.valueOf(query.subSequence(query.indexOf("is") + 1, query.length()));
+//            List<String> st_nums = Arrays.asList(sub.split(", "));
+//            List<Integer> nums = st_nums.stream().map(Integer::parseInt).collect(Collectors.toList());
+//            Integer sum = nums.stream().sum();
+//            return sum.toString();
+//        }
         return "";
     }
 }
