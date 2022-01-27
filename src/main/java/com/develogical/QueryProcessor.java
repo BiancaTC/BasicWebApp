@@ -14,7 +14,7 @@ public class QueryProcessor {
         }
 
         if (query.toLowerCase().contains("name")) {
-            return "Bianca";
+            return "test-sei-btc18";
         }
         return "";
     }
