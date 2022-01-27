@@ -1,7 +1,9 @@
 package com.develogical;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class QueryProcessor {
 
@@ -22,12 +24,10 @@ public class QueryProcessor {
 
         if (query.toLowerCase().contains("largest")) {
             String sub = String.valueOf(query.subSequence(query.indexOf(":") + 1, query.length()));
-            List<String> nums = Arrays.asList(sub.split(", "));
-            if (Integer.valueOf(nums.get(0)) > Integer.valueOf(nums.get(1))) {
-                return nums.get(0);
-            }
+            List<String> st_nums = Arrays.asList(sub.split(", "));
+            List<Integer> nums = st_nums.stream().map(Integer::parseInt).collect(Collectors.toList());
 
-            return nums.get(1);
+            return Collections.max(nums).toString();
         }
         return "";
     }
